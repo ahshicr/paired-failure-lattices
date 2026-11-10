@@ -8,14 +8,30 @@ Wuzhao Li is the corresponding author.
 
 ## Download the experiment artifact
 
-[Release v20261110](https://github.com/ahshicr/paired-failure-lattices/releases/tag/v20261110) contains the complete experiment archive,
-including source code, input data, retained execution records and analysis
-instructions. The large archive is distributed as a release attachment.
-It can be downloaded without a GitHub account.
+[Release v20261110](https://github.com/ahshicr/paired-failure-lattices/releases/tag/v20261110)
+provides the complete archive as 16 numbered parts, with a download helper
+and checksums. No GitHub account is needed.
+
+Download
+[the helper](https://github.com/ahshicr/paired-failure-lattices/releases/download/v20261110/download_artifact.py)
+and run it with Python 3.12 or newer:
+
+~~~sh
+python download_artifact.py
+~~~
+
+It downloads the parts concurrently, verifies every part and reconstructs
+reproducibility.zip. Running it again reuses verified parts after an
+interruption. Extract the resulting archive and follow REPRODUCE.txt.
+
+For a manual download, save the 16 numbered parts, the manifest and the
+helper from the release page. Put the parts in a directory named
+reproduction_download_parts alongside the helper, then run the same command
+to verify and assemble them.
 
 The small source tree in this repository supports browsing the code.
-Download and extract the release artifact before running the experiments
-or analyses because it supplies the data and historical execution records.
+The release artifact supplies the input data and historical execution
+records required by the experiments and analyses.
 
 ## Verify the download
 

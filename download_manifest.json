@@ -1,0 +1,89 @@
+{
+  "version": "v20261110",
+  "archive": "reproducibility.zip",
+  "archive_bytes": 523101118,
+  "archive_sha256": "cf233b24b28e6f3a3a1240629a9ae2c14d9b2b9b65c4dab211887815164894fc",
+  "base_url": "https://github.com/ahshicr/paired-failure-lattices/releases/download/v20261110/",
+  "parts": [
+    {
+      "name": "reproducibility.zip.part001",
+      "bytes": 33554432,
+      "sha256": "fa231febd81863cbec24dac1b30da5e6e5752831b46a6bfa407271805e058286"
+    },
+    {
+      "name": "reproducibility.zip.part002",
+      "bytes": 33554432,
+      "sha256": "834d318c577a5e5d5bb3f9cc28bcfff1b4c6d45d47c4db33b5cc051aa15e4861"
+    },
+    {
+      "name": "reproducibility.zip.part003",
+      "bytes": 33554432,
+      "sha256": "4ff041bba02711ac536d413e0687b13997db861b417d09c8174d324652d0ada0"
+    },
+    {
+      "name": "reproducibility.zip.part004",
+      "bytes": 33554432,
+      "sha256": "a3f6449f1eea445011bcea7c2386b1837243e3d64f46c86a9605b8ec8a2f5b25"
+    },
+    {
+      "name": "reproducibility.zip.part005",
+      "bytes": 33554432,
+      "sha256": "828e3a988e9c23609cf70a602c6f1793147e0ad655ec65c9403287ccc4cadee7"
+    },
+    {
+      "name": "reproducibility.zip.part006",
+      "bytes": 33554432,
+      "sha256": "60f11fdc8a704f346d2d2d8f2d4b8a1c0040886052d0febad23c3e5d07acc3fb"
+    },
+    {
+      "name": "reproducibility.zip.part007",
+      "bytes": 33554432,
+      "sha256": "15274b0dd7d01a54765d677cb8df74fa7f7ed48b7b6b62e204f8569a85a4867c"
+    },
+    {
+      "name": "reproducibility.zip.part008",
+      "bytes": 33554432,
+      "sha256": "2ff67f321808a6a98adc8d49cca25b2d154c24abfa94042d92ad5a276d86b8d1"
+    },
+    {
+      "name": "reproducibility.zip.part009",
+      "bytes": 33554432,
+      "sha256": "ed3a2c3ffc3c28fc59fefee972b379fbe6bd61b376bb3f790825c8058796784f"
+    },
+    {
+      "name": "reproducibility.zip.part010",
+      "bytes": 33554432,
+      "sha256": "3f10b565bc3b471706cfdfa35e528e302a9ae40660c0b099730f5ff1ae2bc413"
+    },
+    {
+      "name": "reproducibility.zip.part011",
+      "bytes": 33554432,
+      "sha256": "f603542a7e206e5fd390bbef1eb3cd0468711cd4c3480fceecafd09cdb58de1e"
+    },
+    {
+      "name": "reproducibility.zip.part012",
+      "bytes": 33554432,
+      "sha256": "2e9b5b949797bfedd8d178253f26c9062ead28d0556d815fcd6af2f1f2297f5d"
+    },
+    {
+      "name": "reproducibility.zip.part013",
+      "bytes": 33554432,
+      "sha256": "fb8cc3d4a81382ed80b57d4e95e09fbe35a1e8adde532c78e65a36a8efd18a74"
+    },
+    {
+      "name": "reproducibility.zip.part014",
+      "bytes": 33554432,
+      "sha256": "1d18cb4e14877de7a3114f3c3ad89277a0724f966d7f1570112848976c89fd5b"
+    },
+    {
+      "name": "reproducibility.zip.part015",
+      "bytes": 33554432,
+      "sha256": "12439637d9afb1f1970cf1d502c7e068fb3ed35ca316b397276c91ec0a19423c"
+    },
+    {
+      "name": "reproducibility.zip.part016",
+      "bytes": 19784638,
+      "sha256": "59f428deb74f546740164497f8c26a4d4ddb81934567fb448cfd06b7daf51d2b"
+    }
+  ]
+}
