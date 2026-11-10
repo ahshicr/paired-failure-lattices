@@ -1,0 +1,14 @@
+{
+  "schema":"tcc-r1-complete-public-comparison-v1",
+  "workflow_count":180,
+  "mappings":["deepest_parent","shallowest_parent","dominator"],
+  "replicates":3,
+  "domain_leaves":2048,
+  "event_identities":32768,
+  "budget":64,
+  "replicas_by_option":[1,2,2,3,4],
+  "methods":["paired_dense","paired_sparse","scenario","replica","greedy"],
+  "wall_seconds_per_task":300,
+  "address_space_bytes_per_task":5368709120,
+  "task_order_seed":81109
+}

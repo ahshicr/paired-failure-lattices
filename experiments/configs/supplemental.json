@@ -1,0 +1,29 @@
+{
+  "schema": "tcc-r1-supplemental-v1",
+  "representation": {
+    "leaves": [16,32,64,128,256,512,1024,2048],
+    "topologies": ["balanced","star","random"],
+    "replicates": 20,
+    "event_counts": [256,32768],
+    "query_count": 1024,
+    "methods": ["paired_dense","paired_sparse","scenario","replica","explicit"]
+  },
+  "ablations": {
+    "leaves": [16,64,256],
+    "nodes": [32,128],
+    "budgets": [16,64],
+    "duplicate_fractions": [0,0.8],
+    "replicates": 20,
+    "methods": [
+      ["paired_dense",[]],
+      ["paired_dense",["no_compression"]],
+      ["paired_dense",["full_states"]],
+      ["paired_sparse",[]],
+      ["scenario",[]]
+    ]
+  },
+  "seed_start": 2026111000,
+  "wall_seconds_per_task": 120,
+  "address_space_bytes_per_task": 5368709120,
+  "task_order_seed": 71109
+}

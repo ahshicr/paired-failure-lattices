@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript when using this research artifact."
+title: "Implicit Paired Failure Lattices for Exact Recovery over Hierarchical Workflow Images"
+type: software
+version: v20261110
+date-released: 2026-11-10
+authors:
+  - family-names: Guo
+    given-names: Weian
+  - family-names: Zhang
+    given-names: Tinglong
+  - family-names: Li
+    given-names: Wuzhao
+repository-code: "https://github.com/ahshicr/paired-failure-lattices"
+url: "https://github.com/ahshicr/paired-failure-lattices/releases/tag/v20261110"

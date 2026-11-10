@@ -1,0 +1,19 @@
+{
+  "schema":"tcc-r1-full-trace-and-scope-v1",
+  "real_cloud":{
+    "populations":["all_services","storage_services"],
+    "scope_interpretations":["identified","vendor_envelope"],
+    "conditionings":["calendar","report_active"],
+    "nodes":[32,128],"budgets":[16,64],"replicas":[2,4],"replicates":20,
+    "fit_year":2018,"validation_year":2019,"test_year":2020,
+    "independent_samples":4096,
+    "methods":["full_scenarios","greedy","paired_envelope","single_domain_envelope","independent_marginals","failure_aggregate","test_oracle"]
+  },
+  "scopes":{
+    "nodes":[8,16,32,64,128],"budgets":[8,16,32,64],
+    "overlap_fractions":[0,0.25,0.5],"higher_order":[false,true],"replicates":20,
+    "solver_seconds":60,"event_identities":64,"menu_options":4,"domain_leaves":32
+  },
+  "seed_start":2026111200,"task_order_seed":91109,
+  "wall_seconds_per_task":180,"address_space_bytes_per_task":5368709120
+}

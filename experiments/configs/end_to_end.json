@@ -1,0 +1,18 @@
+{
+  "schema": "tcc-r1-full-factorial-v1",
+  "matrix_id": "end_to_end_v1",
+  "domain_leaves": [64, 256, 1024],
+  "recovery_nodes": [32, 128, 512],
+  "budgets": [16, 64, 128],
+  "replica_counts": [1, 2, 4],
+  "replicates": 12,
+  "seed_start": 2026110900,
+  "topology_by_replicate": ["balanced", "star", "random"],
+  "menu_options": 5,
+  "event_identities": 256,
+  "methods": ["paired_dense", "paired_sparse", "scenario", "replica", "greedy"],
+  "wall_seconds_per_task": 300,
+  "address_space_bytes_per_task": 5368709120,
+  "task_order_seed": 61109,
+  "scientific_input_rule": "The budget is changed after input generation, so menus, failure masses, benefits and replica choices are identical across budget conditions. No outcome-dependent exclusion."
+}

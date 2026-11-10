@@ -1,0 +1,146 @@
+TCC revision reproduction archive
+
+This archive accompanies the revised manuscript and supplies its code,
+analysis inputs and retained run evidence. Raw source datasets have
+immutable DOIs and included upstream licenses.
+
+1. Evidence without rerunning
+
+The directories results/*_verified contain losslessly compressed full-run
+archives. First use Python 3.12 or newer to unpack them (about 10 GB of free
+space is recommended):
+
+ python scripts/unpack_evidence.py
+
+Use --verify-only to check the compressed evidence without extracting it.
+evidence/archive_manifest.json binds every retained archive to its SHA-256.
+FETCH_VERIFIED.json, when supplied, records the remote retrieval. After
+extraction, the complete terminal records are directly readable.
+RAW_AUDIT.json or the corresponding results/analysis report checks
+every input, stdout and stderr hash and unique output filename. All native
+objectives are exact integer strings and probability denominators. Do not
+read the public objective column through floating-point CSV inference.
+
+Canonical studies:
+ results/end_to_end_verified/results/end_to_end_v1
+ results/supplemental_verified/results/supplemental_v1
+ results/public_verified/results/public_workflows_v1
+ results/fields_verified/results/field_studies_v1/real_cloud
+ results/fields_verified/results/field_studies_v1/scopes
+ results/projections_verified/results/laminar_projections_v1
+
+Each execution_snapshots/<job>/ directory preserves the actual frozen
+source and native binaries for that retained run, including SHA-256 checks.
+Data shared across snapshots are supplied in experiments/data and data/raw.
+Current experiments/ includes the filename fix and additional reproduction
+entry points. The public run used identifiers without decimal points and
+was unaffected by the older suffix bug. Its exact frozen source is retained.
+
+legacy_scaling/ contains the original six complete thread conditions,
+32 instances each, raw resource output and a new hash/equality audit. These
+are the submitted batch measurements with the original runner.
+
+2. Build and full rerun on Linux
+
+Reference compute environment: GCC 13.2.0, C++17, Python 3.10.13, one native
+worker per task. OR-Tools and dependencies are pinned in
+requirements-solver.txt and the recorded dependencies.txt. A local virtual
+environment avoids modifying system packages. Example:
+
+ python3.10 -m venv .venv
+ . .venv/bin/activate
+ python -m pip install -r requirements-solver.txt
+ cd experiments
+ python reproduce.py build
+ python reproduce.py qa --output reproduced
+ python reproduce.py end_to_end --workers 64 --output reproduced
+ python reproduce.py supplemental --workers 64 --output reproduced
+ python reproduce.py public --workers 64 --output reproduced
+ python reproduce.py trace --workers 64 --output reproduced
+ python reproduce.py scopes --workers 64 --output reproduced
+ python reproduce.py projections --workers 64 --output reproduced --scope-source reproduced/field_studies_v1/scopes
+
+Each command uses the entire stated matrix.
+At 64 workers use at least 384 GiB allocated memory, matching the study's
+5 GiB per-task address-space ceiling. Fewer workers preserve the instances
+and objective comparisons but change elapsed throughput and contention.
+Full performance replication requires comparable hardware and system load.
+The supplied institutional build scripts record the exact historical launch.
+The reproduce.py entry point also supports other Linux hosts.
+
+Do not rerun into the retained *_verified directories. Use a new output root.
+
+3. Data and transformations
+
+data/raw/cloud_uptime contains the immutable 37-file CUA release,
+DOI 10.5281/zenodo.14712442, source metadata, and verified download manifest.
+The replay uses reported statuses, intervals and geography. The row audit
+retains anomalies and every scope interpretation.
+
+data/raw/wfinstances contains the immutable v1.5 ZIP,
+DOI 10.5281/zenodo.12510982, its LGPL license, and the 180 source JSON files
+whose SHA-256 values match the frozen conversion manifests. The exact
+three used conversions and their metadata are in experiments/data/public_workflows.
+The original converter is provided in legacy_scaling/scripts/convert_wfinstances.py.
+To recreate a conversion in a fresh destination, from the archive root:
+
+ python legacy_scaling/scripts/convert_wfinstances.py --input-root data/raw/wfinstances/sources --archive data/raw/wfinstances/WfInstances-v1.5.zip --containment-mapping deepest_parent --output-dir regenerated/deepest_parent
+
+Repeat for shallowest_parent and dominator. Include the provided LICENSE
+in the source directory before conversion. The frozen conversion checks it.
+scripts/verify_workflow_conversions.py reruns all three into a fresh local
+directory and verifies every output .pfl against the supplied manifests.
+
+The analysis/data environment used Python 3.13 and requirements-analysis.txt.
+In that environment, from the archive root:
+
+ python scripts/prepare_cua.py
+ cp data/processed/cua_replay.json experiments/data/cua_replay.json
+ python scripts/run_manifest_demonstrator.py --binary experiments/bin/revision_benchmark --output regenerated/manifest_demonstrator
+
+The first command deterministically recreates processed replay distributions
+from the supplied raw data. The copy command installs the identical generated
+file for the experiment runners. The demonstration
+uses illustrative costs and benefits with actual archive I/O.
+
+4. Rebuild tables and figures from retained complete evidence
+
+ python scripts/analyze_end_to_end.py
+ python scripts/analyze_supplemental.py
+ python scripts/analyze_fields.py
+ python scripts/analyze_public.py
+ python scripts/analyze_projections.py
+ python scripts/analyze_paired_effects.py
+ python scripts/audit_legacy_scaling.py
+ python scripts/make_system_figure.py
+
+Figures are exported as PDF, SVG and PNG. Plotting tables and numerical
+summaries are supplied with the retained evidence. The public artifact
+contains experimental code and evidence. The manuscript and review
+correspondence are supplied through the journal submission.
+
+The five paired statistical comparisons can also be checked directly from
+the included summary tables without unpacking the full run archives:
+
+ python scripts/audit_statistical_reporting.py --evidence-only
+
+This independently recomputes the matched populations, blocked bootstrap
+intervals, exact sign tests, Holm adjustment, duration normalizations and
+solver gaps. It covers 39,520 terminal task records. The large-event query
+contrast includes all eight hierarchy sizes, with 480 matched observations
+in 20 realization blocks. Duplicate and overlap settings are injection
+probabilities. The --evidence-only option omits manuscript wording checks.
+
+5. Interpretation and excluded attempts
+
+COMPLETE, TIMEOUT, MEMORY_LIMIT, OPTIMAL and FEASIBLE remain distinct.
+The large general-scope problems include feasible decisions with upper
+bounds at the search limit. Reported speed ratios use paired completions.
+RSS includes shared inputs and a common launcher high-water floor.
+
+The preliminary filename-collision incident and the invalidated job IDs
+are documented in evidence/record_collision_incident.json. The scientific
+tables use the complete replacement runs. Their outputs and payload hashes
+are independently retained.
+
+The upstream source dataset licenses are included with their data.
